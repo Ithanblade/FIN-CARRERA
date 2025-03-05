@@ -47,9 +47,6 @@ const detalleUsuario = async (req, res) => {
     try {
         const { id } = req.params;
 
-        if (!mongoose.Types.ObjectId.isValid(id)) {
-            return res.status(400).json({ msg: "ID no válido" });
-        }
         const usuarioBDD = await Usuario.findById(id);
 
         if (!usuarioBDD) {
