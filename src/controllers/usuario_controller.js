@@ -43,4 +43,26 @@ const login = async (req, res) => {
     }
 };
 
-export { login };
+const detalleUsuario = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ msg: "ID no válido" });
+        }
+        const usuarioBDD = await Usuario.findById(id);
+
+        if (!usuarioBDD) {
+            return res.status(404).json({ msg: "Usuario no encontrado" });
+        }
+
+        res.status(200).json(usuarioBDD);
+    } catch (error) {
+        res.status(500).json({ msg: "Error al obtener el cliente" });
+    }
+};
+
+export { 
+    login,
+    detalleUsuario
+};
