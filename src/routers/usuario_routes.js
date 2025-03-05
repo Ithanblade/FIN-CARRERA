@@ -7,6 +7,6 @@ const router = Router();
 
 
 router.post("/login", login);
-router.get("/perfil", verificarAutenticacion,detalleUsuario);
+router.get("/perfil/:id", verificarAutenticacion,detalleUsuario);
 
 export default router;
