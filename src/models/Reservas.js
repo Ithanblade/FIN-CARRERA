@@ -18,7 +18,7 @@ const reservaSchema = new Schema({
     },
     id_vehiculo:{
             type: Schema.Types.ObjectId,
-            ref: 'Productos',
+            ref: 'Vehiculos',
             required: true
     }
 })
