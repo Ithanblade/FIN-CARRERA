@@ -58,7 +58,8 @@ const detalleUsuario = async (req, res) => {
 
         res.status(200).json(usuarioBDD);
     } catch (error) {
-        res.status(500).json({ msg: "Error al obtener el cliente" });
+        console.log(error)
+        res.status(500).json({ msg: "Error al obtener el usuario" });
     }
 };
 
