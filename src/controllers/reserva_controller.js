@@ -42,7 +42,7 @@ const crearRerserva = async (req, res) => {
             return res.status(400).json({ msg: "El código de la reserva ya está registrada" });
         }
 
-        const reserva = new Pedido({ codigo, descripcion, id_cliente, id_vehiculo });
+        const reserva = new Reserva({ codigo, descripcion, id_cliente, id_vehiculo });
         await reserva.save();
 
         res.status(201).json({ msg: "Reserva creada correctamente" });
@@ -127,7 +127,7 @@ const actualizarReserva = async (req, res) => {
             }
         }
 
-        const reservaActualizado = await Pedido.findByIdAndUpdate(id,{ codigo, descripcion, id_cliente, id_vehiculo },{ new: true, runValidators: true });
+        const reservaActualizado = await Reserva.findByIdAndUpdate(id,{ codigo, descripcion, id_cliente, id_vehiculo },{ new: true, runValidators: true });
 
         res.status(200).json({ msg: "Reserva actualizada correctamente"});
 
