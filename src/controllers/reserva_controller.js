@@ -106,10 +106,8 @@ const actualizarReserva = async (req, res) => {
             return res.status(400).json({ msg: "ID de cliente no válido" });
         }
 
-        for (const id of id_vehiculo) {
-            if (!mongoose.Types.ObjectId.isValid(id)) {
-                return res.status(400).json({ msg: `ID de vehiculo no válido` });
-            }
+        if (!mongoose.Types.ObjectId.isValid(id_vehiculo)) {
+            return res.status(400).json({ msg: "ID de vechiculo no válido" });
         }
 
         const cliente = await Cliente.findById(id_cliente);
